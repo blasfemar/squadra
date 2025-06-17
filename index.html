@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squadra SEO Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-xl font-semibold text-gray-700">Squadra SEO Analyzer</div>
+            <a href="admin/login.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+                Admin Login
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="pt-20 container mx-auto px-6 py-8"> <!-- pt-20 to offset fixed header -->
+        <div class="flex flex-col items-center justify-center">
+            <!-- Analysis form will go here -->
+            <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg text-center">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Analyze SEO Performance</h2>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="url" class="block text-gray-700 text-sm font-bold mb-2 sr-only">Enter URL</label>
+                        <input type="url" name="url" id="url" placeholder="Enter website URL (e.g., https://www.example.com)" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline w-full">
+                        Analyze
+                    </button>
+                </form>
+                <p class="mt-4 text-sm text-gray-600">Enter a URL to get started with your SEO analysis.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Optional) -->
+    <footer class="text-center py-8 text-gray-600 text-sm">
+        &copy; 2024 Squadra SEO Analyzer. All rights reserved.
+    </footer>
+
+</body>
+</html>

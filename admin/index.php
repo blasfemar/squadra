@@ -18,6 +18,33 @@ if (isset($_SESSION['update_error'])) {
     unset($_SESSION['update_error']); // Clear error after displaying
 }
 
+// Fetch Git Commit Hash for version
+$version = '';
+$repo_root_path_for_version = realpath(__DIR__ . '/../'); // Assumes admin is one level below repo root
+
+if ($repo_root_path_for_version) {
+    // Command to get the short commit hash
+    $git_command = 'cd ' . escapeshellarg($repo_root_path_for_version) . ' && git rev-parse --short HEAD';
+
+    // Execute the command. Redirect stderr to stdout to capture any git errors.
+    $version_output = shell_exec($git_command . ' 2>&1');
+
+    if ($version_output !== null) {
+        $version_output = trim($version_output);
+        // Check if the output looks like a hash (e.g., 7-12 hex chars) and not an error message
+        if (preg_match('/^[0-9a-f]{7,12}$/', $version_output)) {
+            $version = $version_output;
+        } elseif (strpos(strtolower($version_output), 'fatal') !== false || strpos(strtolower($version_output), 'error') !== false) {
+            $version = 'N/A (git error)'; // Git command failed
+        } else {
+            $version = 'N/A (not a repo?)'; // Output doesn't look like a hash or known error
+        }
+    } else {
+        $version = 'N/A (exec failed)'; // shell_exec itself might have failed or returned null
+    }
+} else {
+    $version = 'N/A (path error)'; // Could not determine repo root path
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +55,7 @@ if (isset($_SESSION['update_error'])) {
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; }
         .admin-header { background-color: #333; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .admin-header h1 { margin: 0; font-size: 1.5em; }
+        /* .admin-header h1 { margin: 0; font-size: 1.5em; } Ensure this is removed or adapted */
         .admin-header a { color: #fff; text-decoration: none; padding: 8px 12px; background-color: #555; border-radius: 4px; }
         .admin-header a:hover { background-color: #007bff; }
         .admin-container { padding: 20px; }
@@ -40,11 +67,29 @@ if (isset($_SESSION['update_error'])) {
         .message { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
         .message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        /* CSS for the new structure in the header */
+        .admin-header .header-title { /* Container for h1 and small */
+            /* Add any specific styling if needed, e.g., flex direction if they were inline */
+        }
+        .admin-header .header-title h1 {
+            margin: 0;
+            font-size: 1.5em;
+            line-height: 1.2; /* Adjust if needed */
+        }
+        .admin-header .header-title small {
+            font-size: 0.8em;
+            color: #ccc;
+            display: block; /* Makes it appear on the next line */
+        }
     </style>
 </head>
 <body>
     <div class="admin-header">
-        <h1>Admin Panel</h1>
+        <div class="header-title">
+            <h1>Admin Panel</h1>
+            <small>Version: <?php echo htmlspecialchars($version); ?></small>
+        </div>
         <a href="logout.php">Logout</a>
     </div>
 

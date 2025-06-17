@@ -1,0 +1,23 @@
+# Configuration files
+/api/config.php
+
+# Composer dependencies
+/vendor/
+
+# Node.js dependencies
+/node_modules/
+
+# Log files
+*.log
+error_log
+debug_log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific files
+.idea/
+.vscode/
+*.swp
+*~
