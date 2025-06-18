@@ -29,6 +29,19 @@ Siga estos pasos para configurar la aplicación en su servidor.
     # chmod 775 /ruta/a/su/app/api
     ```
 
+### Permisos de Directorios Adicionales
+
+*   **Para Subida de Archivos (Logo/Favicon)**:
+    La funcionalidad de personalización de la interfaz permite subir un logotipo para la cabecera y un favicon. Para que esto funcione, el directorio `assets/uploads/` debe existir y ser escribible por el usuario del servidor web (ej. `www-data`, `apache`). Puede que necesite crear este directorio y ajustar sus permisos después de clonar el repositorio:
+
+    ```bash
+    mkdir -p assets/uploads
+    # Ajustar propietario y permisos según su servidor:
+    # Ejemplo: chown www-data:www-data assets/uploads
+    # Ejemplo: chmod 775 assets/uploads
+    ```
+    Asegúrese de que los permisos no sean demasiado permisivos (ej. `777` no es recomendable para producción).
+
 3.  **Ejecutar el Asistente de Instalación**: Abra su navegador y vaya a la URL de su archivo de instalación:
     **`http://su-dominio.com/install.php`** o **`https://su-dominio.com/install.php`**
     (Reemplace `su-dominio.com` con su nombre de dominio real).

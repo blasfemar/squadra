@@ -74,21 +74,4 @@ function t($key, $params = []) {
     return $text;
 }
 
-// Example usage (for testing this file directly, if needed):
-// if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
-//     // This block will only execute if helpers.php is run directly.
-//     // You would need some sample data in your 'translations' table to test.
-//     // Example: INSERT INTO translations (lang_key, es, en) VALUES ('test_greeting', 'Hola Mundo', 'Hello World');
-//     //          INSERT INTO translations (lang_key, es, en) VALUES ('welcome_user', 'Bienvenido, {name}!', 'Welcome, {name}!');
-//
-//     echo "Testing t() function:
-";
-//     echo "Key 'test_greeting': " . t('test_greeting') . "
-"; // Expected: Hola Mundo (if 'es' and in DB)
-//     echo "Key 'non_existent_key': " . t('non_existent_key') . "
-"; // Expected: non_existent_key
-//     echo "Key 'welcome_user' with param: " . t('welcome_user', ['name' => 'Jules']) . "
-"; // Expected: Bienvenido, Jules!
-// }
-
 ?>

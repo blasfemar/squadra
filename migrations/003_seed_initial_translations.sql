@@ -112,3 +112,18 @@ INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES ('login_error_db_conn
 
 -- Key from admin/index.php refactoring (dashboard quick links)
 INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES ('admin_dashboard_check_updates_link_title', 'Usar el enlace de la barra lateral para la funcionalidad completa de POST', 'Use sidebar link for full POST functionality');
+
+-- Key from frontend_layout.php
+INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES ('app_title_logo_alt', 'Logo del Analizador SEO', 'SEO Analyzer Logo');
+
+-- Keys from admin/changelog.php
+INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES
+('admin_changelog_page_title', 'Historial de Actualizaciones / Changelog', 'Update History / Changelog'),
+('admin_changelog_error_exec_failed', 'Falló la ejecución del comando git log. Asegúrese que shell_exec está habilitado y git instalado.', 'Failed to execute git log command. Ensure shell_exec is enabled and git is installed.'),
+('admin_changelog_error_git_command', 'Error ejecutando el comando git log:', 'Error executing git log command:'),
+('admin_changelog_error_no_commits_parsed', 'No se pudo analizar el historial de commits, o no se encontraron commits en el formato esperado.', 'Could not parse commit history, or no commits found in the expected format.'),
+('admin_changelog_no_history', 'No se encontró historial de commits o la salida de git log estaba vacía.', 'No commit history found or git log output was empty.'),
+('admin_changelog_error_repo_path', 'Error: No se pudo determinar la ruta raíz del repositorio.', 'Error: Could not determine the repository root path.'),
+('admin_changelog_commit_hash_label', 'Hash del Commit:', 'Commit hash:'),
+('admin_changelog_displaying_commits', 'Mostrando los últimos {count} commits.', 'Displaying last {count} commits.'),
+('admin_changelog_no_commits_display', 'No hay commits para mostrar.', 'No commits to display.');
