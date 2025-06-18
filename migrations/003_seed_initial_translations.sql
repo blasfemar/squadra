@@ -127,3 +127,6 @@ INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES
 ('admin_changelog_commit_hash_label', 'Hash del Commit:', 'Commit hash:'),
 ('admin_changelog_displaying_commits', 'Mostrando los últimos {count} commits.', 'Displaying last {count} commits.'),
 ('admin_changelog_no_commits_display', 'No hay commits para mostrar.', 'No commits to display.');
+
+-- Key from index.php (results area)
+INSERT INTO `translations` (`lang_key`, `es`, `en`) VALUES ('frontend_seo_score_title', 'Puntuación SEO', 'SEO Score');

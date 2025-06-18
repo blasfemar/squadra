@@ -19,20 +19,33 @@ ob_start(); // Start output buffering
             <h1 class="text-3xl font-bold mb-4 text-gray-800"><?php echo t('frontend_analyze_form_title', [], 'Analyze SEO Performance'); ?></h1>
             <p class="text-gray-600 mb-8"><?php echo t('frontend_form_subtitle', [], 'Enter a URL to get started with your SEO analysis.'); ?></p>
 
-            <form action="<?php echo t('analyze_form_action_url', [], 'api/analyze.php'); ?>" method="POST" class="space-y-6">
+            <form id="seoAnalysisForm" action="<?php echo t('analyze_form_action_url', [], 'api/analyze.php'); ?>" method="POST" class="space-y-6">
                 <div>
-                    <label for="url" class="sr-only"><?php echo t('frontend_url_label_sr', [], 'Website URL'); ?></label>
-                    <input type="url" name="url" id="url"
+                    <label for="urlToAnalyze" class="sr-only"><?php echo t('frontend_url_label_sr', [], 'Website URL'); ?></label>
+                    <input type="url" name="url" id="urlToAnalyze"
                            placeholder="<?php echo t('frontend_url_placeholder', [], 'Enter website URL (e.g., https://www.example.com)'); ?>"
                            class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
                 </div>
                 <button type="submit"
                         class="w-full text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-150 text-lg hover:opacity-90"
-                        style="background-color: var(--main-color, #10B981);"> <!-- Default to a green if var not set -->
+                        style="background-color: var(--main-color, #10B981);">
                     <?php echo t('analyze_button', [], 'Analyze'); ?>
                 </button>
             </form>
         </div>
+
+        <!-- Results Container and Chart Canvas -->
+        <div id="results-container" class="mt-10 w-full max-w-3xl">
+            <!-- Analysis results will be dynamically inserted here by script.js -->
+            <div class="bg-white p-6 rounded-xl shadow-xl mt-6">
+                 <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center"><?php echo t('frontend_seo_score_title', [], 'SEO Score'); ?></h2>
+                 <div class="max-w-xs mx-auto"> <!-- Control chart size -->
+                    <canvas id="seoScoreChart"></canvas>
+                 </div>
+            </div>
+        </div>
+        <!-- End of new elements -->
+
     </div>
 </div>
 

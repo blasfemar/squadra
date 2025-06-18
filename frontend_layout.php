@@ -94,6 +94,7 @@ $currentPageTitle = isset($pageTitle) ? htmlspecialchars($pageTitle) : $ui_setti
         <link rel="icon" href="<?php echo htmlspecialchars(ltrim($ui_settings['favicon_url'], '/')); // Path relative to root ?>">
     <?php endif; ?>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <?php if (!empty(trim($custom_styles))): ?>
     <style>
         <?php echo "
@@ -161,5 +162,6 @@ $currentPageTitle = isset($pageTitle) ? htmlspecialchars($pageTitle) : $ui_setti
         }
     }
     ?>
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>
